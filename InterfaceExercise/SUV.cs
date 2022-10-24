@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InterfaceExercise
 {
-    public class SUV : IVehicle, ICompany
+    public class SUV : IVehicle, ICompany , IItemized
     {
         public string Model { get; set; }
         public string Year { get; set; }

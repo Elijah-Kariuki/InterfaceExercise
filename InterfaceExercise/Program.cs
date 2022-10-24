@@ -48,33 +48,28 @@ namespace InterfaceExercise
            var car = new List<Car>{porsche};
             var truck = new List<Truck> { rivian };
             var suv = new List<SUV> { mercedes };
+            var itemizedList = new List<IItemized> { porsche, mercedes, rivian };
             
-            
-
-            foreach (var item in car)
+            foreach(var item in itemizedList)
             {
                 Console.WriteLine($"The {item.Year} {item.Make} {item.Model} comes with the manufacturer warranty for the {item.Model} that is {item.Warranty}. \nIt comes packed with {item.HorsePower} horsepower and estimated fuel economy of {item.EPAFuelEconomy} and can seat comfortably {item.NumberOfPassengers} passengers.");
                 Console.WriteLine();
-                Console.WriteLine($"In addition, the {item.Make} {item.Model} can accellerate from 0-60 mph in {item.AccellerateTo60MPH} seconds!! True or False: the {item.Model} has turbo? {item.HasTurbo}!!");
-                Console.WriteLine("----------------------------------------------");
+                switch (item.Make)
+                {
+                    case "Porsche":
+                        Console.WriteLine($"In addition, the {item.Make} {item.Model} can accellerate from 0-60 mph in {porsche.AccellerateTo60MPH} seconds!! True or False: the {porsche.Model} has turbo? {porsche.HasTurbo}!!");
+                        Console.WriteLine("----------------------------------------------");
+                        break;
+                    case "Mercedes":
+                        Console.WriteLine($"In addition, the {item.Make} {item.Model} has a ground clearance of {mercedes.GroundClearance} inches in case you want to go off road!! True or False: the {item.Model} is one of the best 4X4 SUVs? {mercedes.FourWheelDrive}!!");
+                        Console.WriteLine("----------------------------------------------");
+                        break;
+                        default:
+                        Console.WriteLine($"In addition, the {item.Make} {item.Model} has a towing capacity of {rivian.TowingCapacity} pounds which is impressive for an {rivian.FuelType} vehicle!!");
+                        Console.WriteLine("----------------------------------------------");
+                        break ;
+                }
             }
-            foreach(var item in truck)
-            {
-                Console.WriteLine($"The {item.Year} {item.Make} {item.Model} comes with the manufacturer warranty for the {item.Model} that is {item.Warranty}. \nIt comes packed with {item.HorsePower} horsepower and estimated fuel economy of {item.EPAFuelEconomy} and can seat comfortably {item.NumberOfPassengers} passengers.");
-                Console.WriteLine();
-                Console.WriteLine($"In addition, the {item.Make} {item.Model} has a towing capacity of {item.TowingCapacity} which is impressive for an {item.FuelType} vehicle!!");
-                Console.WriteLine("----------------------------------------------");
-
-            }
-            foreach(var item in suv)
-            {
-                Console.WriteLine($"The {item.Year} {item.Make} {item.Model} comes with the manufacturer warranty for the {item.Model} that is {item.Warranty}. \nIt comes packed with {item.HorsePower} horsepower and estimated fuel economy of {item.EPAFuelEconomy} and can seat comfortably {item.NumberOfPassengers} passengers.");
-                Console.WriteLine();
-                Console.WriteLine($"In addition, the {item.Make} {item.Model} has a ground clearance of {item.GroundClearance} inches in case you want to go off road!! True or False: the {item.Model} is one of the best 4X4 SUVs? {item.FourWheelDrive}!!");
-                Console.WriteLine("----------------------------------------------");
-            }
-
-
         }
     }
 }
